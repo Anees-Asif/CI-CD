@@ -9,7 +9,7 @@ CI/CD, which stands for Continuous Integration and Continuous Deployment, is a s
 
 2. **Consistency**: It ensures consistent builds and deployments, reducing the chances of deployment-related errors.
 
-3. **Early Detection of Issues**: Automated testing in CI/CD pipelines detects issues early in the development process, making it easier and cheaper to fix them.
+3. **Early Detection of Issues**: Automated testing in CI/CD pipelines detects issues early in the development process, making it easier and cheaper to fix the issues before they become a bigger problem.
 
 4. **Collaboration**: CI/CD encourages collaboration among developers, testers, and operations teams, fostering a DevOps culture.
 
@@ -29,8 +29,35 @@ Jenkins is an open-source automation server widely used for implementing CI/CD p
 
 5. **Active Community**: Jenkins benefits from a large and active community, which means frequent updates and support.
 
+## Stages of jenkins
+Here are the typical stages in a Jenkins pipeline:
+
+1. **Checkout**: This stage involves fetching the source code from the version control system to the Jenkins workspace for further processing.
+
+2. **Build**: In this stage, the build process starts which can include compiling code.
+
+3. **Test**: After the build, automated tests are executed, which may include unit tests, integration tests, and other quality assurance checks to validate the code is working correctly.
+
+4. **Static Code Analysis**: This optional stage involves analyzing the code for quality by identifying issues.
+
+5. **Package**: In this stage, the application is packaged into deployable artifacts, which may include creating Docker containers.
+
+6. **Deploy**: Deployment to various environments (e.g., development, staging, production) is the next step.
+
+7. **Test (again)**: After deployment, it's common to perform additional testing in the target environment to ensure that the application functions correctly in its production environment.
+
+8. **Quality Assurance (QA)**: This stage may include various forms of quality assurance checks, such as security scanning, performance testing, and compliance testing.
+
+9. **User Acceptance Testing (UAT)**: If applicable, user acceptance testing is conducted to ensure that the application meets business requirements.
+
+10. **Promotion**: After approval, the application can be promoted to a production environment.
+
+11. **Monitor**: Continuous monitoring and logging are crucial. Jenkins can trigger monitoring tools to ensure the application remains stable and responsive.
+
+12. **Cleanup**: After a successful deployment, it's important to clean up temporary files and resources used during the pipeline execution.
+
 ## Alternatives to Jenkins
-While Jenkins is a popular choice, there are several alternatives available, including:
+While Jenkins is the popular choice, there are several alternatives available, including:
 
 1. **GitLab CI/CD**: Integrated within GitLab, it provides an end-to-end CI/CD platform with version control.
 
