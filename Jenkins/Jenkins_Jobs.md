@@ -69,6 +69,41 @@
 
 ### Launching to AWS Plan
 
+Before we start we need to complete a few pre requisites.
+
+1. **Setup Jenkins:**
+   - Ensure that Jenkins is properly installed and configured in your environment. If you haven't already, you may need to set up a Jenkins server and have it running.
+
+2. **Access to an EC2 Instance:**
+   - Ensure that you have access to an EC2 instance on which you intend to deploy your application. You should have the necessary permissions and SSH access to this instance.
+
+3. **GitHub Repository:**
+   - You need a GitHub repository where your code is hosted. Make sure you have the correct access to this repository as you'll be configuring webhooks and access keys.
+
+4. **SSH Key Pair:**
+   - Generate an SSH key pair if you don't have one already. You'll use this key pair for authenticating Jenkins to your EC2 instance.
+
+5. **GitHub Deploy Key:**
+   - Add the public key of the SSH key pair to your GitHub repository as a deploy key. Ensure it has write access to the repository.
+
+6. **Node.js Installation:**
+   - Determine whether you need to install Node.js on your EC2 instance or if you'll be using an Amazon Machine Image (AMI) that already has Node.js installed.
+
+7. **Test Scripts:**
+   - Prepare the necessary test scripts and build scripts for your application, as these will be part of your CI/CD process.
+
+
+8. **Permissions and Credentials:**
+    - Make sure you have the appropriate permissions and credentials to access GitHub, Jenkins, and your EC2 instance. This includes any SSH keys and credentials required for authentication.
+
+9. **Network Configuration:**
+    - Ensure that network configurations allow Jenkins to communicate with your GitHub repository and the EC2 instance, including any necessary firewall rules.
+
+10. **Backup and Recovery Plan:**
+    - Consider setting up backup and recovery mechanisms, as well as error-handling procedures in your CI/CD process.
+
+The plan consists of 10 tasks.
+
 #### Task 1: Create a New Jenkins Job
 1. Click "New Item" to create a new Jenkins job.
 2. Enter the name "your_name-cd" for the job.
@@ -90,14 +125,19 @@
 #### Task 6: Change to the App Directory
 1. Add a build step to navigate to the directory where the app code was copied on the EC2 instance using the `cd` command. 
 
-#### Task 7: Run npm install
+#### Task 7: Install Node.js (or Use an AMI)
+1. Either install Node.js on the EC2 instance via build steps or use an AMI that already has Node.js installed.
+
+#### Task 8: Run npm install
 1. Include a build step to execute `npm install` within the app directory on the EC2 instance to install project dependencies.
    
-#### Task 8: Install Node.js (or Use an AMI)
-1. Either install Node.js on the EC2 instance via build steps or use an AMI that already has Node.js installed.
    
 #### Task 9: Verify the Code via SSH
 1. Set up an SSH connection from Jenkins to your EC2 instance. Test the code once connected.
 
 #### Task 10: Modify the App Name
 1. Add a build step to update the name of the Sparta app to "your_name - Sparta" within the app code. We can use `sed` command to do this.
+
+## Diagram of entire process
+
+![](diagram.PNG)
