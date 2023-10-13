@@ -47,7 +47,5 @@ This code is a shell script that uses SSH to connect to an EC2 instance and laun
 
 7. `pm2 start app.js`: Starts the Node.js application named "app.js" using PM2.
 
-8. `pm2 restart app.js`: Restarts the Node.js application named "app.js" using PM2. This is often used to apply any code changes or updates to the running application.
-
 
 ![](execute_app.PNG)
